@@ -8,7 +8,10 @@
       "@components/*": ["./src/presentation/components/*"],
       "@assets/*": ["./src/presentation/assets/*"],
       "@screens/*": ["./src/presentation/screens/*"],
+      "@styles/*": ["./src/presentation/styles/*"],
+      "@hooks/*": ["./src/application/hooks/*"],
       "@routes/*": ["./src/main/routes/*"],
+      "@shared/*": ["./src/shared/*"],
     },
   },
 }

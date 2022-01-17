@@ -4,7 +4,7 @@ module.exports = function (api) {
     presets: ['babel-preset-expo'],
     plugins: [
       ['module-resolver', {
-        root: ['./src'],
+        root: ['.'],
         extensions: [
           '.ts',
           '.tsx',
@@ -13,10 +13,13 @@ module.exports = function (api) {
           '.json',
         ],
         alias: {
-          assets: './src/assets',
-          components: './src/presentation/components',
-          screens: './src/presentation/screens',
-          routes: './src/main/routes',
+          "@assets": './src/assets',
+          "@components": './src/presentation/components',
+          "@screens": './src/presentation/screens',
+          "@styles": './src/presentation/styles',
+          "@hooks": './src/application/hooks',
+          "@routes": './src/main/routes',
+          "@shared": './src/shared',
         },
       }]
     ]

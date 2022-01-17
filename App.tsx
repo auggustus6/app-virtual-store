@@ -1,9 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Routes from '@routes/index.routes';
+import GlobalProvider from '@hooks/index';
 
 export default function App() {
   return (
+    <GlobalProvider>
+      <Routes />
+    </GlobalProvider>
   );
 }
 
