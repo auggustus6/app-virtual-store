@@ -1,4 +1,3 @@
-import { TextView } from "@components/Labels";
 import React from "react";
 import {
   Container,
@@ -9,7 +8,7 @@ type BadgeProps = {
   count?: number;
 }
 
-const Badge = ({ count = 0 }: BadgeProps) => {
+const _Badge = ({ count = 0 }: BadgeProps) => {
   return (
     <Container>
       <Text>{count}</Text>
@@ -17,6 +16,6 @@ const Badge = ({ count = 0 }: BadgeProps) => {
   )
 }
 
-export default Badge
+export const Badge = React.memo(_Badge);
 
 
