@@ -1,4 +1,4 @@
-import { Card, CardProps } from "@components/Card"
+import { CardProduct, CardProps } from "@components/Card/CardProduct"
 import { render } from "@shared/tests/helpers"
 
 jest.mock('@expo/vector-icons', () => {
@@ -13,7 +13,7 @@ describe('Test suits for card', () => {
             title: "Camiseta Verde",
             price: "280"
         }
-        const { getByText } = render(<Card  {...cardProps} />)
+        const { getByText } = render(<CardProduct  {...cardProps} />)
 
         const price = getByText("R$ 280");
         const title = getByText(cardProps.title);
@@ -26,7 +26,7 @@ describe('Test suits for card', () => {
             title: "Camiseta Verde",
             price: "280"
         }
-        const { getByRole } = render(<Card  {...cardProps} />)
+        const { getByRole } = render(<CardProduct  {...cardProps} />)
 
         const image = getByRole("image");
 
@@ -39,7 +39,7 @@ describe('Test suits for card', () => {
             price: "280",
             uri: "https://via.placeholder.com/250x250"
         }
-        const { getByRole } = render(<Card  {...cardProps} />)
+        const { getByRole } = render(<CardProduct  {...cardProps} />)
 
         const image = getByRole("image");
 
