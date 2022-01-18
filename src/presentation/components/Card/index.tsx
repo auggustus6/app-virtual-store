@@ -1,3 +1,4 @@
+import Cart from "@components/Cart";
 import { getImageDefault } from "@shared/functions";
 import React from "react";
 import {
@@ -17,12 +18,12 @@ export type CardProps = {
   testID?: string;
 }
 
-const Card = ({ 
-  title, 
-  price, 
+export const Card = ({
+  title,
+  price,
   uri,
-  testID  }: CardProps) => {
-    
+  testID }: CardProps) => {
+
   return (
     <Container testID={testID}>
       <ContainerImage>
@@ -34,13 +35,10 @@ const Card = ({
       <ContainerBody>
         <ContainerInfo>
           <Price accessibilityLabel="test-label" allowFontScaling={false}>R$ {price}</Price>
-          <Description allowFontScaling={false}>{title}</Description>
+          <Description allowFontScaling={false} numberOfLines={1}>{title}</Description>
         </ContainerInfo>
+        <Cart />
       </ContainerBody>
     </Container>
   )
 }
-
-export default Card
-
-

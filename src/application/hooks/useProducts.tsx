@@ -29,11 +29,13 @@ const ProductContextProvider = ({ children }: ProductContextProviderProps) => {
     const [loading, setLoading] = React.useState<boolean>(false);
 
     const loadProducts = async () => {
-        setLoading(false)
+        setLoading(true);
 
         try {
             const response = await api.get('/product');
             setProducts(response.data);
+            setLoading(false);
+
         } catch (err) {
             throw new Error(JSON.stringify(err));
         } finally {
