@@ -43,7 +43,6 @@ const ProductContextProvider = ({ children }: ProductContextProviderProps) => {
         }
     }
 
-
     const valuesProvider = {
         products,
         loading,

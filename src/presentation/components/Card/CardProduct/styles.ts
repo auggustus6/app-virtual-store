@@ -3,16 +3,8 @@ import styled, { css } from "styled-components/native";
 import { TextView } from "@components/Labels";
 
 
-export const Container = styled.SafeAreaView`
-  ${({ theme }) => css`
-        flex:1;
-    `}
-`;
-
-export const ContainerImage =styled.View`
-  ${({theme}) => css`
-  
-  `}
+export const Container = styled.View`
+  flex:1;
 `;
 
 export const Image =styled.Image`

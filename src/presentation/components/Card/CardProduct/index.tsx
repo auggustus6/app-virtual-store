@@ -3,7 +3,6 @@ import { getImageDefault } from "@shared/functions";
 import React from "react";
 import {
   Container,
-  ContainerImage,
   Image,
   ContainerBody,
   ContainerInfo,
@@ -26,12 +25,10 @@ export type CardProps = {
 
   return (
     <Container testID={testID}>
-      <ContainerImage>
         <Image
           accessibilityRole="image"
           source={{ uri: getImageDefault(uri) }}
         />
-      </ContainerImage>
       <ContainerBody>
         <ContainerInfo>
           <Price accessibilityLabel="test-label" allowFontScaling={false}>R$ {price}</Price>
