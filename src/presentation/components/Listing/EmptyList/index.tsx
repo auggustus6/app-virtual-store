@@ -11,12 +11,12 @@ export type EmptyListViewProps = {
 
 export const EmptyListView: React.FC<EmptyListViewProps> = (props) => {
     return (
-        <Container>
+        <Container testID='empty-view'>
             <Text>
                 {props.title ?? 'Oops!'}
             </Text>
             <Text>
-                {props.content ?? 'Không có dữ liệu!'}
+                {props.content ?? 'Não foi possível encontrar o item'}
             </Text>
         </Container>
     );

@@ -5,7 +5,7 @@ import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 const SkeletonLoadingItem: React.FC = () => {
     return (
         <SkeletonPlaceholder>
-          <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
+          <SkeletonPlaceholder.Item testID='item-skeleton' flexDirection="row" alignItems="center">
             <SkeletonPlaceholder.Item width={RFValue(60)} height={RFValue(60)} borderRadius={RFValue(50)} />
             <SkeletonPlaceholder.Item marginLeft={RFValue(20)}>
               <SkeletonPlaceholder.Item width={RFValue(120)} height={RFValue(20)} borderRadius={RFValue(4)} />
