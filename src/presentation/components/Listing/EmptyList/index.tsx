@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import {
+    Container,
+    Text,
+  } from './styles'
 
 export type EmptyListViewProps = {
     title?: string;
@@ -8,29 +11,14 @@ export type EmptyListViewProps = {
 
 export const EmptyListView: React.FC<EmptyListViewProps> = (props) => {
     return (
-        <View style={[styles.container]}>
-            <Text style={styles.title}>
+        <Container>
+            <Text>
                 {props.title ?? 'Oops!'}
             </Text>
-            <Text
-                style={styles.content}
-            >
+            <Text>
                 {props.content ?? 'Không có dữ liệu!'}
             </Text>
-        </View>
+        </Container>
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    title: {
-        color: '#000',
-    },
-    content: {
-        fontSize: 8,
-    },
-});

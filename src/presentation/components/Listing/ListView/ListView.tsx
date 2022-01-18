@@ -1,8 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, FlatListProps, RefreshControl} from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatListProps, RefreshControl} from 'react-native';
 import { EmptyListView, EmptyListViewProps } from '../EmptyList';
-
+import SkeletonLoadingItem from '../SkeletonLoadingItem';
+import {
+  Container,
+  List
+} from './styles'
 export interface ListViewProps<ItemT> extends FlatListProps<ItemT> {
   refreshing?: boolean;
   onRefresh?: () => void;
@@ -51,9 +54,9 @@ export const ListView: ListViewFC = (props) => {
       }
       return (
         <>
-          {/* <SkeletonLoadingItem />
           <SkeletonLoadingItem />
-          <SkeletonLoadingItem /> */}
+          <SkeletonLoadingItem />
+          <SkeletonLoadingItem />
         </>
       );
     }
@@ -61,8 +64,8 @@ export const ListView: ListViewFC = (props) => {
   };
 
   return (
-    <View style={[styles.container]}>
-      <FlatList
+    <Container>
+      <List<any>
         {...props}
         ListEmptyComponent={emptyItem()}
         ListFooterComponent={footer()}
@@ -72,18 +75,8 @@ export const ListView: ListViewFC = (props) => {
             onRefresh={props.onRefresh}
           />
         }
-        style={styles.list}
         onEndReached={onEndReached}
       />
-    </View>
+    </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  list: {
-    flex: 1,
-  },
-});
