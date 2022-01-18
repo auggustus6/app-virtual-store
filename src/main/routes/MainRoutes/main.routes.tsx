@@ -11,7 +11,7 @@ const MainRoutes =() => {
             <Stack.Screen
                 options={{
                     title: "Virtual Store",
-                    headerRight: () => <Cart />,
+                    headerRight: () => <Cart showBadge />,
                 }}
                 name="Products"
                 component={ProductScreen} />

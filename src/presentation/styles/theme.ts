@@ -2,7 +2,7 @@ export default {
     colors: {
         primary: '#6ab04c',
         
-        secondary: '#557078',
+        secondary: '#30336b',
 
         attention: '#E83F5B',
         attention_light: 'rgba(232,63,91,0.5)',

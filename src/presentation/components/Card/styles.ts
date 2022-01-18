@@ -1,5 +1,6 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled, { css } from "styled-components/native";
+import { TextView } from "@components/Labels";
 
 
 export const Container = styled.SafeAreaView`
@@ -35,7 +36,7 @@ export const ContainerInfo =styled.View`
   `}
 `;
 
-export const Price =styled.Text`
+export const Price =styled(TextView)`
   ${({theme}) => css`
     color:${theme.colors.primary};
     font-size:${RFValue(20)}px;
@@ -43,7 +44,7 @@ export const Price =styled.Text`
   `}
 `;
 
-export const Description =styled.Text`
+export const Description = styled(TextView)`
   ${({theme}) => css`
   color:${theme.colors.text_dark};
     font-size:${RFValue(14)}px;
