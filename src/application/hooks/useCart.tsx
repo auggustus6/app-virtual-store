@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ProductItemProps } from "./useProducts";
 
 
@@ -10,6 +10,9 @@ type CartContextProps = {
     productList: ProductListProps[]
     loading: boolean;
     addProduct: (product: ProductItemProps) => void;
+    removeProduct: (idProduct: string) => void;
+    handleDecrement: (idProduct: string) => void;
+    handleIncrement: (idProduct: string) => void;
 }
 
 type CartContextProviderProps = {
@@ -19,11 +22,26 @@ type CartContextProviderProps = {
 const CartContext = React.createContext<CartContextProps>({} as CartContextProps);
 
 const CartContextProvider = ({ children }: CartContextProviderProps) => {
-
-
     const [loading, setLoading] = React.useState<boolean>(false);
-
     const [productList, setProductList] = React.useState<ProductListProps[]>([]);
+
+    const handleDecrement = (idProduct: string) => {
+        const newProductList = productList.map(item => {
+            if (item.id === idProduct) return { ...item, quantity: item.quantity - 1 };
+            return item;
+        });
+        setProductList(newProductList);
+    }
+
+    const handleIncrement = (idProduct: string) => {
+        const newProductList = productList.map(item => {
+            if (item.id === idProduct) {
+                return { ...item, quantity: item.quantity + 1 }
+            }
+            return item;
+        })
+        setProductList(newProductList);
+    }
 
     const addProduct = (product: ProductItemProps) => {
         setLoading(true);
@@ -31,7 +49,6 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
         if (newProduct) {
             newProduct.quantity += 1;
-            newProduct.price = String(newProduct.quantity * Number(product.price));
             setProductList(productList => productList.map(item => item.id === product.id ? newProduct : item));
         } else {
             setProductList([...productList, { ...product, quantity: 1 }])
@@ -39,10 +56,19 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
         setLoading(false);
     }
 
+    const removeProduct = (idProduct: string) => {
+        setLoading(true);
+        setProductList(productList.filter(item => item.id !== idProduct));
+        setLoading(false);
+    }
+
     const valuesProvider = {
         productList,
         addProduct,
+        removeProduct,
         loading,
+        handleDecrement,
+        handleIncrement
     }
 
     return (

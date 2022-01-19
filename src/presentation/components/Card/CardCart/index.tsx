@@ -6,35 +6,46 @@ import {
   Content,
   Text,
 } from './styles';
+import { ControlCount } from "@components/Controls";
+import { useCart } from "@hooks/useCart";
+import { TouchableOpacity } from "react-native";
 
 
 export type CardCartProps = {
-    uriProduct?: string;
-    title: string;
-    description: string;
-    price: string;
-    quantity: number;
-} 
+  id: string;
+  uriProduct?: string;
+  title: string;
+  price: string;
+  quantity: number;
+}
 
 const _CardCart = ({
+  id,
   uriProduct,
   title,
-  description,
   price,
   quantity
-}:CardCartProps) => {
+}: CardCartProps) => {
+
+  const { handleDecrement, handleIncrement, removeProduct } = useCart();
+
   return (
     <Container>
       <Image
-      accessibilityRole="image"
-      source={{uri: getImageDefault(uriProduct)}} />
+        accessibilityRole="image"
+        source={{ uri: getImageDefault("") }} />
       <Content>
         <Text>{title}</Text>
-        <Text>{description}</Text>
+        <Text>R$ {price}</Text>
+        <TouchableOpacity onPress={()=> removeProduct(id)}>
+          <Text removed>Remover</Text>
+        </TouchableOpacity>
       </Content>
       <Content>
-        <Text>R$ {price}</Text>
-        <Text>{quantity}</Text>
+        <ControlCount
+          handleDecrement={() => handleDecrement(id)}
+          handleIncrement={() => handleIncrement(id)}
+          count={quantity} />
       </Content>
     </Container>
   )

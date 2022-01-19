@@ -28,13 +28,13 @@ const ProductScreen: React.FC = () => {
       refreshing={loading}
       columnWrapperStyle={{ justifyContent: 'space-between' }}
       numColumns={2}
-      keyExtractor={(item: any) => item.id}
+      keyExtractor={(item: any, index: any) => String(index)}
       contentContainerStyle={{ paddingHorizontal: 10, paddingVertical: 10 }}
       renderItem={({ item }) => (
         <GestureHandlerRootView>
-        <Wrapper onPress={() => handleSelectProduct(item)}>
-          <CardProduct title={item.name} price={item.price} />
-        </Wrapper>
+          <Wrapper onPress={() => handleSelectProduct(item)}>
+            <CardProduct title={item.name} price={item.price} />
+          </Wrapper>
         </GestureHandlerRootView>
       )}
     />
