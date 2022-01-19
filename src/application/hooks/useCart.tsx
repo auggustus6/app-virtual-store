@@ -31,7 +31,8 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
         if (newProduct) {
             newProduct.quantity += 1;
-            setProductList([...productList, newProduct]);
+            newProduct.price = String(newProduct.quantity * Number(product.price));
+            setProductList(productList => productList.map(item => item.id === product.id ? newProduct : item));
         } else {
             setProductList([...productList, { ...product, quantity: 1 }])
         }

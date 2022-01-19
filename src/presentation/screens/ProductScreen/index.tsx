@@ -7,6 +7,7 @@ import {
 import { useProduct } from '@hooks/useProducts';
 import { useCart } from '@hooks/useCart';
 import { useNavigation } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const ProductScreen: React.FC = () => {
   const { loadProducts, products, loading } = useProduct();
@@ -27,11 +28,14 @@ const ProductScreen: React.FC = () => {
       refreshing={loading}
       columnWrapperStyle={{ justifyContent: 'space-between' }}
       numColumns={2}
+      keyExtractor={(item: any) => item.id}
       contentContainerStyle={{ paddingHorizontal: 10, paddingVertical: 10 }}
       renderItem={({ item }) => (
+        <GestureHandlerRootView>
         <Wrapper onPress={() => handleSelectProduct(item)}>
           <CardProduct title={item.name} price={item.price} />
         </Wrapper>
+        </GestureHandlerRootView>
       )}
     />
   );

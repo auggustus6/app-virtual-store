@@ -8,8 +8,8 @@ import {
 } from './styles';
 
 
-type CardCartProps = {
-    uriProduct: string;
+export type CardCartProps = {
+    uriProduct?: string;
     title: string;
     description: string;
     price: string;
@@ -25,7 +25,9 @@ const _CardCart = ({
 }:CardCartProps) => {
   return (
     <Container>
-      <Image source={{uri: getImageDefault(uriProduct)}} />
+      <Image
+      accessibilityRole="image"
+      source={{uri: getImageDefault(uriProduct)}} />
       <Content>
         <Text>{title}</Text>
         <Text>{description}</Text>

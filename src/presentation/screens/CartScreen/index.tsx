@@ -1,10 +1,20 @@
 import React from 'react';
-import { View } from 'react-native';
+import { useCart } from '@hooks/useCart';
+import { Text, View } from 'react-native';
 
-// import { Container } from './styles';
 
 const CartScreen: React.FC = () => {
-  return <View />;
+  const { productList } = useCart();
+  return (
+    <View>
+      {productList.map(product => (
+        <>
+        <Text>{product.name}</Text>
+        <Text>{product.quantity}</Text>
+        </>
+      ))}
+    </View>
+  )
 }
 
 export default CartScreen;
