@@ -7,7 +7,6 @@ import {
 } from './styles';
 import { RFValue } from "react-native-responsive-fontsize";
 import { useTheme } from "styled-components/native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 type ControlCountProps = {
   count: number;
@@ -27,7 +26,9 @@ const _ControlCount = ({ count = 0, handleDecrement, handleIncrement }: ControlC
         <Feather name="minus" size={RFValue(24)} color={theme.colors.white} />
       </ButtonRounded>
 
-      <Text>{count}</Text>
+      <Text
+      testID="count-text"
+      >{count}</Text>
 
       <ButtonRounded
         testID="button-increment"

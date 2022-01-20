@@ -25,6 +25,7 @@ const ProductScreen: React.FC = () => {
   return (
     <ListView
       data={products}
+      testID="list-products"
       refreshing={loading}
       columnWrapperStyle={{ justifyContent: 'space-between' }}
       numColumns={2}
@@ -32,7 +33,7 @@ const ProductScreen: React.FC = () => {
       contentContainerStyle={{ paddingHorizontal: 10, paddingVertical: 10 }}
       renderItem={({ item }) => (
         <GestureHandlerRootView>
-          <Wrapper onPress={() => handleSelectProduct(item)}>
+          <Wrapper testID='wrapper-card' onPress={() => handleSelectProduct(item)}>
             <CardProduct title={item.name} price={item.price} />
           </Wrapper>
         </GestureHandlerRootView>

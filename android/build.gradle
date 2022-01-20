@@ -32,6 +32,11 @@ allprojects {
             url(new File(["node", "--print", "require.resolve('jsc-android/package.json')"].execute(null, rootDir).text.trim(), "../dist"))
         }
 
+        maven {
+            // Artefados do Detox para o node_module
+            url "$rootDir/../node_modules/detox/Detox-android"
+        }
+
         google()
         mavenCentral()
         jcenter()
