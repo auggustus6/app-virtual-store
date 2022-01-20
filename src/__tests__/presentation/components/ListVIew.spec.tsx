@@ -1,4 +1,4 @@
-import { ListView } from "@components/Listing/ListView/ListView";
+import { ListView } from "@components/Listing/ListView";
 import { render } from "@shared/tests/helpers"
 import { Text } from "react-native";
 

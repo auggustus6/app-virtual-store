@@ -2,7 +2,7 @@ import React from 'react';
 import { RFValue } from 'react-native-responsive-fontsize';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
-const SkeletonLoadingItem: React.FC = () => {
+export const SkeletonLoadingItem: React.FC = () => {
     return (
         <SkeletonPlaceholder>
           <SkeletonPlaceholder.Item testID='item-skeleton' flexDirection="row" alignItems="center">
@@ -20,5 +20,3 @@ const SkeletonLoadingItem: React.FC = () => {
         </SkeletonPlaceholder>
       );
 }
-
-export default SkeletonLoadingItem;

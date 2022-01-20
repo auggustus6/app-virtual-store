@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import React  from 'react';
 import { useCart } from '@hooks/useCart';
-import { ListView } from '@components/Listing/ListView/ListView';
+import { ListView } from '@components/Listing/ListView';
 import {
   Container,
   ContainerList,

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ListView } from '@components/Listing/ListView/ListView';
+import { ListView } from '@components/Listing/ListView';
 import { CardProduct } from '@components/Card';
 import {
   Wrapper

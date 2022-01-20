@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from "react-native-responsive-fontsize";
 import { useTheme } from "styled-components/native";
@@ -8,14 +8,21 @@ import {
   ContainerBadge,
 } from './styles';
 import { Badge } from "@components/Badge";
-import { RectButtonProps } from "react-native-gesture-handler";
+import { useCart } from "@hooks/useCart";
+import { TouchableOpacityProps } from "react-native";
 
 type CartProps = {
   showBadge?: boolean;
-} & RectButtonProps
+} & TouchableOpacityProps
 
 const Cart = ({ showBadge = false, ...props }: CartProps) => {
   const theme = useTheme();
+  const {productList} = useCart();
+
+  const memoCount = useMemo(() => {
+    return productList.length;
+  }, [productList]);
+
   return (
     <Container {...props}>
       <Feather
@@ -25,7 +32,7 @@ const Cart = ({ showBadge = false, ...props }: CartProps) => {
         color={theme.colors.primary} />
       {showBadge &&
         <ContainerBadge>
-          <Badge />
+          <Badge count={memoCount} />
         </ContainerBadge>
       }
     </Container>

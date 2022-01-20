@@ -7,15 +7,23 @@ const Stack = createNativeStackNavigator();
 
 const MainRoutes =() => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={({ navigation }) => ({
+                headerRight: () => <Cart showBadge onPress={() => navigation.navigate('Cart')} />,
+            })}
+        >
             <Stack.Screen
                 options={{
                     title: "Virtual Store",
-                    headerRight: () => <Cart showBadge />,
                 }}
                 name="Products"
                 component={ProductScreen} />
-            <Stack.Screen name="Cart" component={CartScreen} />
+            <Stack.Screen
+            name="Cart" 
+            options={{
+                title: "Meu Carrinho",
+            }}
+            component={CartScreen} />
         </Stack.Navigator>
     )
 }
