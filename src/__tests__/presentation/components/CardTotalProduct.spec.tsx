@@ -3,9 +3,9 @@ import { render } from "@shared/tests/helpers";
 
 describe('Test suits for CardTotalProduct', () => {
     it('should render correctly', () => {
-        const { getByText } = render(<CardTotalProduct />);
+        const { getByText } = render(<CardTotalProduct total={120} />);
 
-        const element = getByText("R$ 0");
+        const element = getByText("R$ 120");
         expect(element).toBeTruthy();
     });
 
@@ -16,6 +16,4 @@ describe('Test suits for CardTotalProduct', () => {
         expect(element.props.style[1].fontWeight).toBe('bold');
         expect(element.props.style[1].fontSize).toBe(43);
     });
-
-
-})
+});
