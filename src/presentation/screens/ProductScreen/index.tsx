@@ -31,9 +31,9 @@ const ProductScreen: React.FC = () => {
       numColumns={2}
       keyExtractor={(item: any, index: any) => String(index)}
       contentContainerStyle={{ paddingHorizontal: 10, paddingVertical: 10 }}
-      renderItem={({ item }) => (
+      renderItem={({ item, index }) => (
         <GestureHandlerRootView>
-          <Wrapper testID='wrapper-card' onPress={() => handleSelectProduct(item)}>
+          <Wrapper testID={`wrapper-card-${index}`} onPress={() => handleSelectProduct(item)}>
             <CardProduct title={item.name} price={item.price} uri={item.image} />
           </Wrapper>
         </GestureHandlerRootView>
