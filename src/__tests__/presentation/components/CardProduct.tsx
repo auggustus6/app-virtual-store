@@ -7,6 +7,12 @@ jest.mock('@expo/vector-icons', () => {
     };
   });
 
+  jest.mock('@hooks/useCart', () => ({
+    useCart: () => ({
+      productList: []
+    })
+  }))
+
 describe('Test suits for card', () => {
     it('should render card with props', () => {
         const cardProps: CardProps = {

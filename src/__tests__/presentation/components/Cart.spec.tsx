@@ -6,6 +6,14 @@ jest.mock('@expo/vector-icons', () => {
       Feather: ""
     };
   });
+
+
+  jest.mock('@hooks/useCart', () => ({
+    useCart: () => ({
+      productList: []
+    })
+  }))
+
 describe('Test suits for cart', () => {
     it('should render correctly', () => {
         const {getByTestId} = render(<Cart />);
@@ -15,7 +23,7 @@ describe('Test suits for cart', () => {
         expect(icon).toBeDefined();
     });
 
-    it('should render badge component if showBadge it is true', () => {
+    it('should render badge component if props showBadge it is true', () => {
         const {getByText} = render(<Cart showBadge />);
 
         const countBadge = getByText('0');

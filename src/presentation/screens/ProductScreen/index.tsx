@@ -34,7 +34,7 @@ const ProductScreen: React.FC = () => {
       renderItem={({ item, index }) => (
         <GestureHandlerRootView>
           <Wrapper testID={`wrapper-card-${index}`} onPress={() => handleSelectProduct(item)}>
-            <CardProduct title={item.name} price={item.price} uri={item.image} />
+            <CardProduct title={item.name} price={item.price} />
           </Wrapper>
         </GestureHandlerRootView>
       )}

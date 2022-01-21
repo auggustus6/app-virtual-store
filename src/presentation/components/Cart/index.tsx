@@ -17,10 +17,10 @@ type CartProps = {
 
 const Cart = ({ showBadge = false, ...props }: CartProps) => {
   const theme = useTheme();
-  const {productList} = useCart();
+  const { productList } = useCart();
 
   const memoCount = useMemo(() => {
-    return productList.length;
+    return productList.length || 0;
   }, [productList]);
 
   return (
