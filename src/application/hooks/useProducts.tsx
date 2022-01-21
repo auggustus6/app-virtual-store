@@ -5,7 +5,7 @@ export type ProductItemProps = {
     id: string;
     createdAt: string;
     name: string;
-    price: string;
+    price: number;
     image: string;
     stock: number;
 }

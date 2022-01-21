@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { ProductItemProps } from "./useProducts";
 
 
@@ -11,6 +11,7 @@ type CartContextProps = {
     loading: boolean;
     addProduct: (product: ProductItemProps) => void;
     removeProduct: (idProduct: string) => void;
+    totalProducts: number;
     handleDecrement: (idProduct: string) => void;
     handleIncrement: (idProduct: string) => void;
 }
@@ -62,10 +63,15 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
         setLoading(false);
     }
 
+    const totalProducts = useMemo(() => {
+        return productList.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    }, [productList]) 
+
     const valuesProvider = {
         productList,
         addProduct,
         removeProduct,
+        totalProducts,
         loading,
         handleDecrement,
         handleIncrement

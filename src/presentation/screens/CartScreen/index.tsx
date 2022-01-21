@@ -7,9 +7,10 @@ import {
 } from './styles';
 import { CardCart } from '@components/Card';
 import { SeparatorItem } from '@components/Listing/SeparatorItem';
+import CardTotalProduct from '@components/Card/CardTotalProduct';
 
 const CartScreen: React.FC = () => {
-  const { productList } = useCart();
+  const { productList, totalProducts } = useCart();
 
   const renderProduct = ({ item }: any) => {
     return (
@@ -34,6 +35,7 @@ const CartScreen: React.FC = () => {
           contentContainerStyle={{ paddingHorizontal: 10, paddingVertical:10 }}
         />
       </ContainerList>
+      <CardTotalProduct total={totalProducts}/>
     </Container>
   )
 }
